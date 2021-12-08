@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-STOW_FOLDERS="kitty,nvim,zsh,yabai,skhd,karabiner"
+STOW_FOLDERS="kitty,nvim,zsh,yabai,skhd,karabiner,p10k"
 DOTFILES=$HOME/.dotfiles
 
 pushd $DOTFILES
