@@ -5,6 +5,6 @@ foreach file (
   prompt.zsh
   plugins.zsh
 ) {
-  source ./config/$file
+  source $HOME/config/$file
 }
 unset file
