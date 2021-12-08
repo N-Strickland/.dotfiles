@@ -1,5 +1,5 @@
 
-export ZSH="/Users/nathanstrickland/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # ls
 export LS_COLORS="no=0:fi=0:di=38;5;110:ex=38;5;78;1:ca=38;5;17:ln=target:mh=38;\
