@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   use(require('plugins.formatter'))
   use(require('plugins.trouble'))
   use(require('plugins.vim-test'))
+  use(require('plugins.toggleterm'))
 
 end)
 
