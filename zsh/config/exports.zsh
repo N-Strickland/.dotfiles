@@ -1,6 +1,10 @@
 
 export ZSH=$HOME/.oh-my-zsh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # ls
 export LS_COLORS="no=0:fi=0:di=38;5;110:ex=38;5;78;1:ca=38;5;17:ln=target:mh=38;\
 5;222;1:or=48;5;196;38;5;232;1:ow=38;5;220;1:sg=48;5;3;38;5;0:su=38;5;220;1;3;10\
