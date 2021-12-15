@@ -1,9 +1,9 @@
 foreach file (
+  prompt.zsh
+  plugins.zsh
   exports.zsh
   aliases.zsh
   mappings.zsh
-  prompt.zsh
-  plugins.zsh
 ) {
   source $HOME/config/$file
 }

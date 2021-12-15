@@ -1,5 +1,4 @@
 plugins=(
-  vi-mode
   git 
   zsh-autopair 
   fast-syntax-highlighting 

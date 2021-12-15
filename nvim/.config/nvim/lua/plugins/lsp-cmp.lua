@@ -18,38 +18,73 @@ return {
     local lspkind = require('lspkind')
     local luasnip = require('luasnip')
 
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    vim.diagnostic.config({
       virtual_text = false,
       signs = true,
       underline = true,
       update_in_insert = false,
+      severity_sort = true,
+      float = {
+        source = 'always'
+      }
     })
-
 
     local signs = { Error = "", Warning = "", Hint = "", Information = "" }
     for type, icon in pairs(signs) do
-        local hl = "LspDiagnosticsSign" .. type
+        local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
 
     vim.o.updatetime = 250
-    vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
-
+    vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
     vim.cmd [[
-      highlight LspDiagnosticsLineNrError guibg=#51202A guifg=#FF0000 gui=bold
-      highlight LspDiagnosticsLineNrWarning guibg=#51412A guifg=#FFA500 gui=bold
-      highlight LspDiagnosticsLineNrInformation guibg=#1E535D guifg=#00FFFF gui=bold
-      highlight LspDiagnosticsLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+      highlight DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+      highlight DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+      highlight DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+      highlight DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
 
-      sign define DiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=LspDiagnosticsLineNrError
-      sign define DiagnosticsSignWarn text= texthl=LspDiagnosticsSignWarning linehl= numhl=LspDiagnosticsLineNrWarning
-      sign define DiagnosticsSignInfo text= texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsLineNrInformation
-      sign define DiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsLineNrHint
+      sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+      sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+      sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+      sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
     ]]
+     
+    local function goto_definition(split_cmd)
+      local util = vim.lsp.util
+      local log = require("vim.lsp.log")
+      local api = vim.api
 
+      -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
+      local handler = function(_, result, ctx)
+        if result == nil or vim.tbl_isempty(result) then
+          local _ = log.info() and log.info(ctx.method, "No location found")
+          return nil
+        end
+
+        if split_cmd then
+          vim.cmd(split_cmd)
+        end
+
+        if vim.tbl_islist(result) then
+          util.jump_to_location(result[1])
+
+          if #result > 1 then
+            util.set_qflist(util.locations_to_items(result))
+            api.nvim_command("copen")
+            api.nvim_command("wincmd p")
+          end
+        else
+          util.jump_to_location(result)
+        end
+      end
+
+      return handler
+    end
+
+    vim.lsp.handlers["textDocument/implementation"] = goto_definition('vsplit')
     -- Capture real implementation of function that sets signs
-    local orig_set_signs = vim.lsp.diagnostic.set_signs
+    local orig_set_signs = vim.diagnostic.set_signs
     local set_signs_limited = function(diagnostics, bufnr, client_id, sign_ns, opts)
 
       -- original func runs some checks, which I think is worth doing
@@ -86,7 +121,7 @@ return {
       orig_set_signs(filtered_diagnostics, bufnr, client_id, sign_ns, opts)
     end
 
-    vim.lsp.diagnostic.set_signs = set_signs_limited
+    vim.diagnostic.set_signs = set_signs_limited
 
     cmp.setup({
       completion = {

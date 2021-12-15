@@ -75,3 +75,11 @@ vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true })
+
+-- toggle-term
+function _G.set_terminal_keymaps()
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], { noremap = true })
+  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], { noremap = true })
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
