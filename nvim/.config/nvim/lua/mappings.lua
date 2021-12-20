@@ -15,6 +15,12 @@ vim.api.nvim_set_keymap('n', '<leader>x', ':bd<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>X', ':bd!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>s', ':w<CR>', { noremap = true })
 
+vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-K>', '<C-W>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-L>', '<C-W>l', { noremap = true })
+
+
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
@@ -80,6 +86,7 @@ vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true })
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], { noremap = true })
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], { noremap = true })
+  -- vim.api.nvim_set_keymap('n', '[[<C-\\>]]', ':ToggleTermToggleAll<CR>', { noremap = true })
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
