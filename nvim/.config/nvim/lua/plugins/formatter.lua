@@ -25,22 +25,22 @@ return {
       logging = true,
         filetype = {
           javascript = { prettier },
-          javascriptreact = { prettier },
           typescript = { prettier },
-          typescriptreact = { prettier },
           css = { prettier },
           json = { prettier },
           graphql = { prettier },
           markdown = { prettier },
           yaml = { prettier },
           html = { prettier },
+          ['typescript.tsx'] = { prettier },
+          ['javascript.jsx'] = { prettier },
         },
     })
 
     vim.api.nvim_exec([[
       augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.js,*.ts FormatWrite
+        autocmd BufWritePost *.js,*.ts,*.tsx,*.jsx FormatWrite
       augroup END
     ]], true)
 

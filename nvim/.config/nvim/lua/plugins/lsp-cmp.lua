@@ -229,7 +229,7 @@ return {
 
     end
 
-    local servers = { 'tsserver', 'graphql' }
+    local servers = { 'tsserver', 'graphql', 'prismals' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         on_attach = on_attach,

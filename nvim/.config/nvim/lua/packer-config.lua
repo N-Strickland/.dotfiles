@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
   use(require('plugins.trouble'))
   use(require('plugins.vim-test'))
   use(require('plugins.toggleterm'))
+  use(require('plugins.autotag'))
 
 end)
 
