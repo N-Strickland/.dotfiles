@@ -19,7 +19,8 @@ vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-K>', '<C-W>k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-L>', '<C-W>l', { noremap = true })
-
+vim.api.nvim_set_keymap('v', '<C-c>', '"*y', { noremap = true })
+vim.api.nvim_set_keymap('', '<C-v>', '"*p', { noremap = false })
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
