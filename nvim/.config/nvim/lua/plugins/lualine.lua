@@ -3,9 +3,7 @@ return {
   config = function()
     require('lualine').setup({
       options = {
-        icons_enabled = true,
-        theme = 'material-nvim',
-        component_separators = { left = '', right = ''},
+        icons_enabled = true, 
         section_separators = { left = '', right = ''},
         disabled_filetypes = {},
         always_divide_middle = true,
