@@ -11,8 +11,8 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':b#<CR>', { noremap = true })
 vim.api.nvim_set_keymap('c', '<C-j>', '<Down>', {})
 vim.api.nvim_set_keymap('c', '<C-k>', '<Up>', {})
 
-vim.api.nvim_set_keymap('n', '<leader>x', ':bd<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>X', ':bd!<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>x', ':Bdelete<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>X', ':Bdelete!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>s', ':w<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', { noremap = true })
