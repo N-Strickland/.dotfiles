@@ -33,6 +33,10 @@ vim.api.nvim_set_keymap('v', '<leader>fg', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('v', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
 
+-- lazygit
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>:LazyGit<cr>', { noremap = true })
+
+
 -- nvim-tree
 vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', { noremap = true })
