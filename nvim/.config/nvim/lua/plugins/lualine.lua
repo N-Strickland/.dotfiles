@@ -7,6 +7,7 @@ return {
         section_separators = { left = '', right = ''},
         disabled_filetypes = {},
         always_divide_middle = true,
+        theme = 'gruvbox-material'
       },
       sections = {
         lualine_a = {'mode'},

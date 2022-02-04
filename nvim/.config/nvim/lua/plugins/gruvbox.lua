@@ -1,7 +1,8 @@
 return {
-  'morhetz/gruvbox',
-  as = 'gruvbox',
+  'sainnhe/gruvbox-material',
   config = function() 
-    vim.cmd('colorscheme gruvbox')
+    vim.g.gruvbox_material_palette = 'original'
+    vim.g.gruvbox_material_statusline_style = 'original'
+    vim.cmd('colorscheme gruvbox-material')
   end,
 }
