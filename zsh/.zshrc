@@ -9,3 +9,6 @@ foreach file (
 }
 unset file
 
+if [ -x `whence -p gdircolors` ]; then alias dircolors='gdircolors'; fi
+eval `dircolors --sh ~/config/.gruvbox.dircolors`
+
