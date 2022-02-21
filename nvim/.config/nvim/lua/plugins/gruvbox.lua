@@ -1,8 +1,8 @@
 return {
-  'sainnhe/gruvbox-material',
+  'luisiacc/gruvbox-baby',
   config = function() 
-    vim.g.gruvbox_material_palette = 'original'
-    vim.g.gruvbox_material_statusline_style = 'original'
-    vim.cmd('colorscheme gruvbox-material')
+    vim.g.gruvbox_baby_background_color = 'dark'
+    vim.g.gruvbox_baby_telescope_theme = 1
+    vim.cmd('colorscheme gruvbox-baby')
   end,
 }

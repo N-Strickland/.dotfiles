@@ -39,10 +39,10 @@ return {
     vim.o.updatetime = 250
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
     vim.cmd [[
-      highlight DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
-      highlight DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
-      highlight DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
-      highlight DiagnosticLineNrHint guibg=#7e57c2 guifg=#C792EA gui=bold
+      highlight DiagnosticLineNrError guifg=#CC241D gui=bold
+      highlight DiagnosticLineNrWarn guifg=#FABD2F gui=bold
+      highlight DiagnosticLineNrInfo guifg=#8EC07C gui=bold
+      highlight DiagnosticLineNrHint guifg=#B16286 gui=bold
 
       sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
       sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn

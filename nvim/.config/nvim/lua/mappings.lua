@@ -34,7 +34,7 @@ vim.api.nvim_set_keymap('v', '<leader>fb', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('v', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
 
 -- lazygit
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>:LazyGit<cr>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>:LazyGit<cr>', { noremap = true })
 
 
 -- nvim-tree
@@ -50,43 +50,43 @@ vim.api.nvim_set_keymap('v', '<leader>?', '<cmd>lua vim.fn.feedkeys("gb")<cr>', 
 
 -- hop
 -- place this in one of your configuration file(s)
-vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-
-vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua require'hop'.hint_char2({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>", {})
-vim.api.nvim_set_keymap('n', '<leader>F', "<cmd>lua require'hop'.hint_char2({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
-
-vim.api.nvim_set_keymap('n', '<leader>w', "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>", {})
-vim.api.nvim_set_keymap('n', '<leader>W', "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
-
-vim.api.nvim_set_keymap('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>", {})
-
-vim.api.nvim_set_keymap("n", "<leader>vv", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>vw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", 
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>vd", "<cmd>Trouble lsp_document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>vl", "<cmd>Trouble loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>vq", "<cmd>Trouble quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+-- vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+-- vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+--
+-- vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua require'hop'.hint_char2({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>", {})
+-- vim.api.nvim_set_keymap('n', '<leader>F', "<cmd>lua require'hop'.hint_char2({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
+--
+-- vim.api.nvim_set_keymap('n', '<leader>w', "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>", {})
+-- vim.api.nvim_set_keymap('n', '<leader>W', "<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>", {})
+--
+-- vim.api.nvim_set_keymap('n', '<leader>l', "<cmd>lua require'hop'.hint_lines()<cr>", {})
+--
+-- vim.api.nvim_set_keymap("n", "<leader>vv", "<cmd>Trouble<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>vw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", 
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>vd", "<cmd>Trouble lsp_document_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>vl", "<cmd>Trouble loclist<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>vq", "<cmd>Trouble quickfix<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
+--   {silent = true, noremap = true}
+-- )
 
 -- vim-test
-vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true })
-
+-- vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true })
+--
 -- toggle-term
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], { noremap = true })
