@@ -19,7 +19,8 @@ return {
         'typescript',
         'yaml',
         'prisma',
-        'python'
+        'python',
+        'go'
       },
       highlight = { enable = true },
       indent = { enable = true }

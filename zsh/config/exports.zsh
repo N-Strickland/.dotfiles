@@ -24,3 +24,5 @@ Desktop=:Documents=:Downloads=:Pictures=:Projects=:.DS_Store=:
 .gitconfig=:.gitignore=:.bashrc=:.bashprofile=:favicon.ico=:LICENSE=:\
 node_modules=:procfile=:.Xdefaults=:.Xresources=:.dmrc=:.gitconfig=:\
 .profile=:.xinputrc=:ini=:config=:"
+
+export PATH=$PATH:$HOME/go/bin

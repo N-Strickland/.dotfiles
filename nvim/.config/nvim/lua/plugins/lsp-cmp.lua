@@ -229,7 +229,7 @@ return {
 
     end
 
-    local servers = { 'tsserver', 'graphql', 'prismals', 'pyright' }
+    local servers = { 'tsserver', 'graphql', 'prismals', 'pyright', 'gopls' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -239,6 +239,23 @@ return {
         }
       }
     end
+  
+  util = require "lspconfig/util"
+
+  nvim_lsp.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+  }
+
     -- diagnostic settings
     nvim_lsp.diagnosticls.setup({
       on_attach = on_attach,
